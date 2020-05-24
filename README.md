@@ -214,7 +214,7 @@ yarn-error.log
 ```
 
 ## その他
-emotion-reset globalでのcss resetとして使えるが、あんまり消せてる感はない。<br/>
+emotion-reset globalのcssに加えることで使用<br/>
 `yarn add emotion-reset`
 
 font awesomeの使用<br/>
