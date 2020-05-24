@@ -210,3 +210,60 @@ https://qiita.com/matkatsu8/items/f0a592f713e68a8d95b7
 node_modules
 yarn-error.log
 
+## その他
+emotion-reset globalでのcss resetとして使えるが、あんまり消せてる感はない。
+yarn add emotion-reset
+
+font awesomeの使用
+yarn add @fortawesome/react-fontawesome @fortawesome/fontawesome-svg-core
+普段のクラスを大文字でつなげたものをiconに渡す
+```
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPaperPlane } from "@fortawesome/free-solid-svg-icons";
+///////
+<FontAwesomeIcon icon={faPaperPlane} size="2x" />
+```
+なぜかスタイルが崩壊していたので以下で対応
+nextjsとの相性が悪いよう。fontawesomのstyleをglobal styleに追加すると治る
+```
+import { config, dom } from "@fortawesome/fontawesome-svg-core";
+config.autoAddCss = false;
+/////
+const globalCSS = css`
+  ${dom.css()}
+////////
+```
+
+react-spring cssアニメーションをhookののりで管理できる 物理に基づいた動き方をするのでとても自然。
+v8は型に問題がるので、v9を利用。ただしunstableなので注意
+うまくいかないときはpackage.jsonで`"react-spring": "9.0.0-beta.34",`にしてみること。
+yarn add react-spring@next
+
+react-gesture react-springとともに使う。ドラッグアンドドロップとか簡単に書ける。動き系。
+yarn add react-use-gesture
+
+react-three-fiber threeをreactで使う　階層構造で組み立てていく感じ(react-springから持ってくることもできるっぽい)
+yarn add react-three-fiber
+orbitcontrolやloaderを入れる時は別途threeを追加して、dynamicimportする必要がある
+これはSSRの環境でes6の構文が使えないことに起因するっぽい
+
+```
+import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
+
+extend({ OrbitControls });
+/////
+////
+const Controls: React.FC<ControlProps> = (props) => {
+/////
+export default Controls;
+```
+```
+import dynamic from "next/dynamic";
+const Controls = dynamic(() => import("上のファイルへのパス"), {
+  ssr: false,
+});
+```
+
+axios　API叩くときに使用　重宝する
+yarn add axios
+
