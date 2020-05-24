@@ -20,9 +20,9 @@ yarn コマンドで操作するため
 ```
 
 ## yarn devをやる
-tsconfig.json と next-env.d.tsが生成される。　後者はいじることはない
-tsconfig.jsonの中身をお好みのルールで書き換える
-ただし、実際のトランスコンパイル自体はnextではbabelを使用しているらしい
+tsconfig.json と next-env.d.tsが生成される。　後者はいじることはない<br/>
+tsconfig.jsonの中身をお好みのルールで書き換える<br/>
+ただし、実際のトランスコンパイル自体はnextではbabelを使用しているらしい<br/>
 型チェック自体はtscを利用している。
 ```
 {
@@ -57,7 +57,7 @@ tsconfig.jsonの中身をお好みのルールで書き換える
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"] //コンパイル対象の指定
 }
 ```
-- コピペ用
+コピペ用
 ```
 {
   "compilerOptions": {
@@ -91,8 +91,8 @@ https://medium.com/@tommedema/typescript-confusion-tsconfig-json-module-modulere
 
 
 ## css系の追加
-CSS in JSとしてemotionを使用。styled-componentはnextだと設定が面倒。
-styled -> styled component的な使用が可能
+CSS in JSとしてemotionを使用。styled-componentはnextだと設定が面倒。<br/>
+styled -> styled component的な使用が可能<br/>
 core -> cssという書き方が可能
 ```
 yarn add @emotion/styled @emotion/core
@@ -100,11 +100,11 @@ yarn add -D @emotion/babel-preset-css-prop babel-plugin-emotion
 ```
 
 .babelrcの作成
-plugin: es6のそれぞれの仕様に対して変換してくれるもの
-preset: pluginを集めたもの。
-next/babel -> nextが用意してくれているpreset。 react env typescriptとか入っている。
-@emotion/babel-preset-css-prop -> cssの書き方をしたときjsx pragmaを不要にしてくれる
-emotion -> babel-plugin-emotion styledを使用可能にしてくれる
+plugin: es6のそれぞれの仕様に対して変換してくれるもの<br/>
+preset: pluginを集めたもの。<br/>
+next/babel -> nextが用意してくれているpreset。 react env typescriptとか入っている。<br/>
+@emotion/babel-preset-css-prop -> cssの書き方をしたときjsx pragmaを不要にしてくれる<br/>
+emotion -> babel-plugin-emotion styledを使用可能にしてくれる<br/>
 ```
 {
   "presets": ["next/babel", "@emotion/babel-preset-css-prop"],
@@ -116,9 +116,9 @@ link:
 https://qiita.com/tetsutaroendo/items/8e3351bc4bfbb419f662#emotion
 
 ## eslintとprettierの追加
-vscodeでの自動フォーマット導入のため
-Eslint -> 構文チェックツール。
-Prettier -> コード整形ツール。esling --fixより優れており、手軽で確実に整形できる。ただし構文チェックをもたない。
+vscodeでの自動フォーマット導入のため<br/>
+Eslint -> 構文チェックツール。<br/>
+Prettier -> コード整形ツール。esling --fixより優れており、手軽で確実に整形できる。ただし構文チェックをもたない。<br/>
 基本的なセットを導入　-> eslintとpretttierのコンフリクト解決　+ prettierをeslintルールで使用する ライブラリ -> typescript用のライブラリ
 ```
 yarn add -D eslint prettier eslint-plugin-react
@@ -161,9 +161,9 @@ yarn add -D @types-eslint/parser @types-eslint/eslint-plugin
 }
 ```
 
-VSCodeの拡張にESLintとPrettierをインストール
-(+ vscode-styled-componentsをインストールするとCSS In JSがやりやすくなる)
-ctrl + , でセッティング画面。eslintで検索 -> Edit in settings.jsonで設定。
+VSCodeの拡張にESLintとPrettierをインストール<br/>
+(+ vscode-styled-componentsをインストールするとCSS In JSがやりやすくなる)<br/>
+ctrl + , でセッティング画面。eslintで検索 -> Edit in settings.jsonで設定。<br/>
 場合によってはプロジェクトごとにsetting.jsonを使用するのもあり。
 ```
 {
@@ -206,16 +206,18 @@ https://qiita.com/matkatsu8/items/f0a592f713e68a8d95b7
 ```
 
 ## .gitignore
+```
 .next
 node_modules
 yarn-error.log
+```
 
 ## その他
-emotion-reset globalでのcss resetとして使えるが、あんまり消せてる感はない。
-yarn add emotion-reset
+emotion-reset globalでのcss resetとして使えるが、あんまり消せてる感はない。<br/>
+`yarn add emotion-reset`
 
-font awesomeの使用
-yarn add @fortawesome/react-fontawesome @fortawesome/fontawesome-svg-core
+font awesomeの使用<br/>
+`yarn add @fortawesome/react-fontawesome @fortawesome/fontawesome-svg-core`<br/>
 普段のクラスを大文字でつなげたものをiconに渡す
 ```
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -223,7 +225,7 @@ import { faPaperPlane } from "@fortawesome/free-solid-svg-icons";
 ///////
 <FontAwesomeIcon icon={faPaperPlane} size="2x" />
 ```
-なぜかスタイルが崩壊していたので以下で対応
+なぜかスタイルが崩壊していたので以下で対応<br/>
 nextjsとの相性が悪いよう。fontawesomのstyleをglobal styleに追加すると治る
 ```
 import { config, dom } from "@fortawesome/fontawesome-svg-core";
@@ -234,17 +236,17 @@ const globalCSS = css`
 ////////
 ```
 
-react-spring cssアニメーションをhookののりで管理できる 物理に基づいた動き方をするのでとても自然。
-v8は型に問題がるので、v9を利用。ただしunstableなので注意
+react-spring cssアニメーションをhookののりで管理できる 物理に基づいた動き方をするのでとても自然。<br/>
+v8は型に問題がるので、v9を利用。ただしunstableなので注意<br/>
 うまくいかないときはpackage.jsonで`"react-spring": "9.0.0-beta.34",`にしてみること。
-yarn add react-spring@next
+`yarn add react-spring@next`
 
-react-gesture react-springとともに使う。ドラッグアンドドロップとか簡単に書ける。動き系。
-yarn add react-use-gesture
+react-gesture react-springとともに使う。ドラッグアンドドロップとか簡単に書ける。動き系。<br/>
+`yarn add react-use-gesture`
 
-react-three-fiber threeをreactで使う　階層構造で組み立てていく感じ(react-springから持ってくることもできるっぽい)
-yarn add react-three-fiber
-orbitcontrolやloaderを入れる時は別途threeを追加して、dynamicimportする必要がある
+react-three-fiber threeをreactで使う　階層構造で組み立てていく感じ(react-springから持ってくることもできるっぽい)<br/>
+yarn add react-three-fiber<br/>
+orbitcontrolやloaderを入れる時は別途threeを追加して、dynamicimportする必要がある<br/>
 これはSSRの環境でes6の構文が使えないことに起因するっぽい
 
 ```
@@ -264,6 +266,6 @@ const Controls = dynamic(() => import("上のファイルへのパス"), {
 });
 ```
 
-axios　API叩くときに使用　重宝する
+axios　API叩くときに使用　重宝する<br/>
 yarn add axios
 
