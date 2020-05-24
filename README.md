@@ -270,8 +270,8 @@ const Controls = dynamic(() => import("上のファイルへのパス"), {
 axios　API叩くときに使用　重宝する<br/>
 `yarn add axios`
 
-material ui いろいろ便利なセット　スタイリング用
-core以外にもiconやfont等がある
+material ui いろいろ便利なセット　スタイリング用<br/>
+core以外にもiconやfont等がある<br/>
 `yarn add @material-ui/core`
 
 権限系統は環境変数にしてdirenvで管理する
