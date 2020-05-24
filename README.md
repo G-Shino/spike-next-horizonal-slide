@@ -115,7 +115,95 @@ emotion -> babel-plugin-emotion styledを使用可能にしてくれる
 link:
 https://qiita.com/tetsutaroendo/items/8e3351bc4bfbb419f662#emotion
 
-## eslintの追加
+## eslintとprettierの追加
+vscodeでの自動フォーマット導入のため
+Eslint -> 構文チェックツール。
+Prettier -> コード整形ツール。esling --fixより優れており、手軽で確実に整形できる。ただし構文チェックをもたない。
+基本的なセットを導入　-> eslintとpretttierのコンフリクト解決　+ prettierをeslintルールで使用する ライブラリ -> typescript用のライブラリ
+```
+yarn add -D eslint prettier eslint-plugin-react
+yarn add -D eslint-config-prettier eslint-plugin-prettier
+yarn add -D @types-eslint/parser @types-eslint/eslint-plugin
+```
+
+.eslintrc.jsonを作成する 中身は精査できていない。
+```
+{
+  "extends": [
+      "eslint:recommended",
+      "plugin:react/recommended",
+      "plugin:@typescript-eslint/recommended",
+      "plugin:@typescript-eslint/eslint-recommended",
+      "plugin:prettier/recommended",
+      "prettier/@typescript-eslint"
+  ],
+  "plugins": [
+      "@typescript-eslint",
+      "react"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "env": {
+      "browser": true,
+      "node": true,
+      "es6": true
+  },
+  "parserOptions": {
+      "sourceType": "module",
+      "ecmaFeatures": {
+          "jsx": true
+      }
+  },
+  "rules": {
+      "react/prop-types": "off",
+      "react/react-in-jsx-scope": "off",
+      "@typescript-eslint/no-explicit-any": "off"
+  }
+}
+```
+
+VSCodeの拡張にESLintとPrettierをインストール
+(+ vscode-styled-componentsをインストールするとCSS In JSがやりやすくなる)
+ctrl + , でセッティング画面。eslintで検索 -> Edit in settings.jsonで設定。
+場合によってはプロジェクトごとにsetting.jsonを使用するのもあり。
+```
+{
+    "eslint.validate": [
+        "javascript",
+        "javascriptreact",
+        "typescript",
+        "typescriptreact"
+    ],
+    "eslint.alwaysShowStatus": true,
+    "eslint.lintTask.enable": true,
+    "window.zoomLevel": 0,
+}
+```
+自分の設定 カラーモードや保存時の自動フォーマット、タブサイズの設定等が加わっている。 
+```
+{
+    "eslint.validate": [
+        "javascript",
+        "javascriptreact",
+        "typescript",
+        "typescriptreact"
+    ],
+    "eslint.alwaysShowStatus": true,
+    "eslint.lintTask.enable": true,
+    "eslint.format.enable": true,
+    "eslint.codeAction.showDocumentation": {
+        "enable": true
+    },
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+    "editor.formatOnSave": true,
+    "workbench.colorTheme": "Default High Contrast",
+    "window.zoomLevel": 0,
+    "editor.tabSize": 2,
+}
+
+link:
+https://qiita.com/matkatsu8/items/f0a592f713e68a8d95b7
+
+```
 
 ## .gitignore
 .next
