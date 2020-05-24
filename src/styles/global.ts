@@ -2,7 +2,6 @@ import { css } from "@emotion/core";
 import emotionReset from "emotion-reset";
 import { Color } from "./../constants/Color";
 
-//emotion-resetとかに変更した方が良いかもね
 const globalCSS = css`
   ${emotionReset}
   html {
