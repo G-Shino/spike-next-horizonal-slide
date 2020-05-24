@@ -200,10 +200,11 @@ ctrl + , でセッティング画面。eslintで検索 -> Edit in settings.json�
     "editor.tabSize": 2,
 }
 
+```
+
 link:
 https://qiita.com/matkatsu8/items/f0a592f713e68a8d95b7
 
-```
 
 ## .gitignore
 ```
