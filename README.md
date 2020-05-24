@@ -270,3 +270,4 @@ const Controls = dynamic(() => import("上のファイルへのパス"), {
 axios　API叩くときに使用　重宝する<br/>
 yarn add axios
 
+権限系統は環境変数にしてdirenvで管理する
