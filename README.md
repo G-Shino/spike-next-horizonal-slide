@@ -274,4 +274,6 @@ material ui いろいろ便利なセット　スタイリング用<br/>
 core以外にもiconやfont等がある<br/>
 `yarn add @material-ui/core`
 
-権限系統は環境変数にしてdirenvで管理する
+nextでの環境変数はわかりやすい。
+内部でdotenvも使用しているので.envファイルを用いればよい
++ next.config.jsに記述すればOK。.envに書けばビルド時に埋め込まれる
