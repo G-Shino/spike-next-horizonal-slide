@@ -123,7 +123,7 @@ Prettier -> コード整形ツール。esling --fixより優れており、手�
 ```
 yarn add -D eslint prettier eslint-plugin-react
 yarn add -D eslint-config-prettier eslint-plugin-prettier
-yarn add -D @types-eslint/parser @types-eslint/eslint-plugin
+yarn add -D @typescript-eslint/parser @typescript-eslint/eslint-plugin
 ```
 
 .eslintrc.jsonを作成する 中身は精査できていない。
