@@ -17,7 +17,7 @@ interface TabPanelProps {
 }
 
 function TabPanel(props: TabPanelProps) {
-  const { children, value, index, ...other } = props;
+  const { children, index, ...other } = props;
 
   return (
     <div
@@ -27,11 +27,9 @@ function TabPanel(props: TabPanelProps) {
       aria-labelledby={`full-width-tab-${index}`}
       {...other}
     >
-      {value === index && (
-        <Box p={3}>
-          <Typography>{children}</Typography>
-        </Box>
-      )}
+      <Box p={3}>
+        <Typography>{children}</Typography>
+      </Box>
     </div>
   );
 }
