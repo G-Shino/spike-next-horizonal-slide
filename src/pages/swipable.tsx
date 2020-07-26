@@ -22,7 +22,7 @@ function TabPanel(props: TabPanelProps) {
   return (
     <div
       role="tabpanel"
-      hidden={value !== index}
+      // hidden={value !== index}
       id={`full-width-tabpanel-${index}`}
       aria-labelledby={`full-width-tab-${index}`}
       {...other}
@@ -87,6 +87,7 @@ const FullWidthTabs: React.FC = () => {
         index={value}
         onChangeIndex={handleChangeIndex}
         enableMouseEvents
+        resistance
       >
         <TabPanel value={value} index={0} dir={theme.direction}>
           Item One
