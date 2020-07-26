@@ -20,6 +20,11 @@ const Home: React.FC = () => {
             <a>sample</a>
           </Link>
         </li>
+        <li>
+          <Link href="/swipable">
+            <a>swipable</a>
+          </Link>
+        </li>
       </ul>
     </div>
   );
