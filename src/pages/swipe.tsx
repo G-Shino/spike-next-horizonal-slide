@@ -36,7 +36,7 @@ function TabPanel(props: TabPanelProps) {
   );
 }
 
-function a11yProps(index: any) {
+function allyProps(index: any) {
   return {
     id: `full-width-tab-${index}`,
     "aria-controls": `full-width-tabpanel-${index}`,
@@ -77,9 +77,9 @@ const FullWidthTabs: React.FC = () => {
           variant="fullWidth"
           aria-label="full width tabs example"
         >
-          <Tab label="Item One" {...a11yProps(0)} />
-          <Tab label="Item Two" {...a11yProps(1)} />
-          <Tab label="Item Three" {...a11yProps(2)} />
+          <Tab label="Item One" {...allyProps(0)} />
+          <Tab label="Item Two" {...allyProps(1)} />
+          <Tab label="Item Three" {...allyProps(2)} />
         </Tabs>
       </AppBar>
       <SwipeableViews

@@ -21,8 +21,8 @@ const Home: React.FC = () => {
           </Link>
         </li>
         <li>
-          <Link href="/swipable">
-            <a>swipable</a>
+          <Link href="/swipe">
+            <a>swipe</a>
           </Link>
         </li>
       </ul>
