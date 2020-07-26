@@ -272,7 +272,9 @@ axios　API叩くときに使用　重宝する<br/>
 
 material ui いろいろ便利なセット　スタイリング用<br/>
 core以外にもiconやfont等がある<br/>
-`yarn add @material-ui/core`
+`yarn add @material-ui/core @material-ui/lab`
+https://qiita.com/sono8/items/6fcd9d30c9b7073ed4a0
+
 
 nextでの環境変数はわかりやすい。
 内部でdotenvも使用しているので.envファイルを用いればよい
