@@ -11,11 +11,6 @@ const Home: React.FC = () => {
       <h1>Hello Next</h1>
       <ul>
         <li>
-          <Link href="/">
-            <a>Home</a>
-          </Link>
-        </li>
-        <li>
           <Link href="/sample">
             <a>sample</a>
           </Link>
@@ -23,6 +18,11 @@ const Home: React.FC = () => {
         <li>
           <Link href="/swipe">
             <a>swipe</a>
+          </Link>
+        </li>
+        <li>
+          <Link href="/framer-motion">
+            <a>framer-motion</a>
           </Link>
         </li>
       </ul>
