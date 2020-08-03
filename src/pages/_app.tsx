@@ -7,7 +7,7 @@ import { ThemeProvider, StylesProvider } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import { Theme } from "../constants/Theme";
 
-import { AnimatePresence, motion, Transition } from "framer-motion";
+// import { AnimatePresence, motion, Transition } from "framer-motion";
 
 const MyApp: NextComponentType<AppContext, AppInitialProps, AppProps> = ({
   Component,
@@ -22,16 +22,16 @@ const MyApp: NextComponentType<AppContext, AppInitialProps, AppProps> = ({
     }
   }, []);
 
-  const spring: Transition = {
-    type: "spring",
-    damping: 20,
-    stiffness: 100,
-    when: "afterChildren",
-  };
+  // const spring: Transition = {
+  //   type: "spring",
+  //   damping: 20,
+  //   stiffness: 100,
+  //   when: "afterChildren",
+  // };
 
-  const normal: Transition = {
-    duration: 0,
-  };
+  // const normal: Transition = {
+  //   duration: 0,
+  // };
 
   return (
     <>
@@ -39,7 +39,8 @@ const MyApp: NextComponentType<AppContext, AppInitialProps, AppProps> = ({
         <Global styles={globalCSS} />
         <StylesProvider injectFirst>
           <CssBaseline />
-          <AnimatePresence exitBeforeEnter>
+          <Component {...pageProps} key={router.route} />
+          {/* <AnimatePresence exitBeforeEnter>
             {(() => {
               if (
                 router.route === "/sample" ||
@@ -61,11 +62,12 @@ const MyApp: NextComponentType<AppContext, AppInitialProps, AppProps> = ({
               } else {
                 return (
                   <motion.div
-                    transition={spring}
+                    style={{ height: "100vh" }}
+                    transition={{ duration: 0.1 }}
                     key={router.pathname}
-                    initial={{ x: 300, opacity: 0 }}
-                    animate={{ x: 0, opacity: 1 }}
-                    exit={{ x: -300, opacity: 0 }}
+                    initial={{ x: 300 }}
+                    animate={{ x: 0 }}
+                    exit={{ x: -300 }}
                     id="page-transition-container"
                   >
                     <Component {...pageProps} key={router.route} />
@@ -73,7 +75,7 @@ const MyApp: NextComponentType<AppContext, AppInitialProps, AppProps> = ({
                 );
               }
             })()}
-          </AnimatePresence>
+          </AnimatePresence> */}
         </StylesProvider>
       </ThemeProvider>
     </>

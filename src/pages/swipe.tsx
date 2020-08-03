@@ -8,6 +8,7 @@ import Tab from "@material-ui/core/Tab";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
 import { Item } from "../components/Item";
+import { useRouter } from "next/router";
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -52,8 +53,18 @@ const FullWidthTabs: React.FC = () => {
   const classes = useStyles();
   const theme = useTheme();
   const [value, setValue] = React.useState(0);
+  const router = useRouter();
+  React.useEffect(() => {
+    if (router.query.index) {
+      setValue(Number(router.query.index));
+    }
+  }, [router]);
 
   const handleChange = (_: any, newValue: number) => {
+    router.push({
+      pathname: "/swipe",
+      query: { index: `${newValue}` },
+    });
     setValue(newValue);
   };
 
