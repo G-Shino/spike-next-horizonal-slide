@@ -52,9 +52,8 @@ const useStyles = makeStyles((theme: Theme) => ({
 
 const FullWidthTabs: React.FC = () => {
   const classes = useStyles();
-  const url =
-    "https://spike-next-horizonal-slide-git-feature-analyze-ogp.g-shino.vercel.app";
-  const images = ["/heejun_ogp.png", "shinogu_ogp.png", "takuro_ogp.png"];
+  const url = "https://spike-next-horizonal-slide.vercel.app";
+  const images = ["/heejun_ogp.png", "/shinogu_ogp.png", "/takuro_ogp.png"];
   const theme = useTheme();
   const [value, setValue] = React.useState(0);
   const [path, setPath] = React.useState("");
