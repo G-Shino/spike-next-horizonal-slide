@@ -9,6 +9,7 @@ import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
 import { Item } from "../components/Item";
 import { useRouter } from "next/router";
+import Head from "next/head";
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -51,14 +52,19 @@ const useStyles = makeStyles((theme: Theme) => ({
 
 const FullWidthTabs: React.FC = () => {
   const classes = useStyles();
+  const url = "localhost:3000";
   const theme = useTheme();
   const [value, setValue] = React.useState(0);
+  const [path, setPath] = React.useState("");
   const router = useRouter();
   React.useEffect(() => {
     if (router.query.index) {
       setValue(Number(router.query.index));
     }
+    console.log(router);
+    setPath(router.asPath);
   }, [router]);
+  const images = ["/heejun_ogp.png", "shinogu_ogp.png", "takuro_ogp.png"];
 
   const handleChange = (_: any, newValue: number) => {
     router.push({
@@ -74,6 +80,16 @@ const FullWidthTabs: React.FC = () => {
 
   return (
     <div className={classes.root}>
+      <Head>
+        <meta name="keywords" content="" />
+        <meta property="og:url" content={url + path} />
+        <meta property="og:type" content="" />
+        <meta property="og:title" content={path} />
+        <meta property="og:description" content="" />
+        <meta property="og:site_name" content={"Swipe_" + value} />
+        <meta property="og:image" content={images[value]} />
+        <meta name="twitter:card" content="summary_large_image" />
+      </Head>
       <LogoDiv>
         <Typography variant="h1">ロゴとか</Typography>
       </LogoDiv>
