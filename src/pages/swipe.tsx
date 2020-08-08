@@ -87,7 +87,7 @@ const FullWidthTabs: React.FC = () => {
         <meta property="og:title" content={path} />
         <meta property="og:description" content="" />
         <meta property="og:site_name" content={"Swipe_" + value} />
-        <meta property="og:image" content={images[value]} />
+        <meta property="og:image" content={url + images[value]} />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
       <LogoDiv>
